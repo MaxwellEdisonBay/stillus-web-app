@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import { ProvideAuth } from "./navigation/auth/ProvideAuth";
+import { RouterConfig } from "./navigation/routerConfig";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-          <Route path="/" index element={<Home />} />
-          {/* <Route path="/blogs" element={<Blogs />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
-      </Routes>
-    </BrowserRouter>
+    <>
+      <ProvideAuth>
+        <BrowserRouter>
+          <RouterConfig />
+        </BrowserRouter>
+      </ProvideAuth>
+    </>
   );
 }
 
